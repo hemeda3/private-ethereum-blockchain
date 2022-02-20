@@ -15,15 +15,11 @@ services:
       --nodiscover
       --ipcdisable
       --networkid=${NETWORK_ID}
-    # --netrestrict="172.16.254.0/28"
-    #      --rpc.txfeecap=0
-    #     --rpc.gascap=0
-    #      --http.corsdomain="*"
-    #      --http.addr="0.0.0.0"
-    #      --allow-insecure-unlock
+      --datadir=/var/lib/goethereum
     networks:
       priv-eth-net:
-
+    volumes:
+      - geth-data:/root/.ethereum
   geth-rpc-endpoint:
     hostname: geth-rpc-endpoint
     env_file:
@@ -41,12 +37,17 @@ services:
       --networkid=${NETWORK_ID}
       --rpc.gascap="0"
       --rpc.txfeecap=0
-      --netrestrict="172.16.254.0/28"
-
+      --http.vhosts=*
+      --datadir=/var/lib/goethereum
     ports:
       - "8545:8545"
+      - "30303:30303"
+      - "30303:30303/udp"
+      - "8546:8546"
     networks:
       priv-eth-net:
+    volumes:
+      - geth-data:/root/.ethereum
 
   geth-miner:
     hostname: geth-miner
@@ -61,12 +62,17 @@ services:
       --miner.threads=1
       --networkid=${NETWORK_ID}
       --netrestrict="172.16.254.0/28"
+      --datadir=/var/lib/goethereum
+
     networks:
       priv-eth-net:
-
+    volumes:
+      - geth-data:/root/.ethereum
 networks:
   priv-eth-net:
     driver: bridge
     ipam:
       config:
         - subnet: 172.16.254.0/28
+volumes:
+  geth-data:
