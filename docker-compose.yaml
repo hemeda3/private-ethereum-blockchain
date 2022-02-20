@@ -41,9 +41,6 @@ services:
       --datadir /var/lib/goethereum
     ports:
       - "8545:8545"
-      - "30303:30303"
-      - "30303:30303/udp"
-      - "8546:8546"
     networks:
       priv-eth-net:
     volumes:
