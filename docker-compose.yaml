@@ -15,7 +15,7 @@ services:
       --nodiscover
       --ipcdisable
       --networkid=${NETWORK_ID}
-      --datadir /var/lib/goethereum
+      --datadir /root/.ethereum
     networks:
       priv-eth-net:
     volumes:
