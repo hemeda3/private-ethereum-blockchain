@@ -34,7 +34,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1645399090062</updated>
-      <workItem from="1645399092279" duration="1607000" />
+      <workItem from="1645399092279" duration="1765000" />
     </task>
     <task id="LOCAL-00001" summary="add datadir">
       <created>1645399263502</created>
@@ -92,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645400641801</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add datadir fixed v2">
+      <created>1645400762312</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1645400762312</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

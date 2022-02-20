@@ -71,3 +71,4 @@ networks:
         - subnet: 172.16.254.0/28
 volumes:
   geth-data:
+    driver: local
