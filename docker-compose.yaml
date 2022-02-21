@@ -56,8 +56,8 @@ services:
       --networkid=${NETWORK_ID}
     networks:
       priv-eth-net:
-    volumes:
-      - my-datavolume:/root/.ethereum
+#    volumes:
+#      - my-datavolume:/root/.ethereum
 networks:
   priv-eth-net:
     driver: bridge
