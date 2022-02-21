@@ -16,10 +16,6 @@ services:
       --ipcdisable
       --networkid=${NETWORK_ID}
       --netrestrict="172.16.254.0/28"
-      --rpc.gascap="0"
-      --rpc.txfeecap="0"
-      --rpc.allow-unprotected-txs
-
     networks:
       priv-eth-net:
 
@@ -36,12 +32,10 @@ services:
       --rpc.allow-unprotected-txs
       --http
       --http.addr="0.0.0.0"
-      --http.api="eth,web3,net,admin,personal"
+      --http.api="db,eth,web3,net,admin,personal"
       --http.corsdomain="*"
       --networkid=${NETWORK_ID}
       --netrestrict="172.16.254.0/28"
-      --rpc.gascap="0"
-      --rpc.txfeecap="0"
     ports:
       - "8545:8545"
     networks:
@@ -62,12 +56,8 @@ services:
       --netrestrict="172.16.254.0/28"
       --rpc.gascap="0"
       --rpc.txfeecap="0"
-      --rpc.allow-unprotected-txs
-
     networks:
       priv-eth-net:
-#    volumes:
-#      - ./ethereum-data/keystore:/root/.ethereum/testnet/keystore
 networks:
   priv-eth-net:
     driver: bridge
