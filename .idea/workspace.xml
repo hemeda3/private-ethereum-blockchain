@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2505c0f-1708-419a-8bd8-42a4ca4586ad" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
@@ -37,7 +36,7 @@
       <option name="presentableId" value="Default" />
       <updated>1645399090062</updated>
       <workItem from="1645399092279" duration="4374000" />
-      <workItem from="1645404291430" duration="47000" />
+      <workItem from="1645404291430" duration="286000" />
     </task>
     <task id="LOCAL-00001" summary="add datadir">
       <created>1645399263502</created>
@@ -172,7 +171,21 @@
       <option name="project" value="LOCAL" />
       <updated>1645403382222</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="add datadir fixed v2">
+      <created>1645404343118</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1645404343118</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add datadir fixed v2">
+      <created>1645404465179</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1645404465180</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

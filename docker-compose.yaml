@@ -18,7 +18,7 @@ services:
       --rpc.gascap="0"
       --rpc.txfeecap=0
       --http.vhosts=*
-      --datadir=/var/lib/goethereum
+#      --datadir=/var/lib/goethereum
     networks:
       priv-eth-net:
 #    volumes:
@@ -41,7 +41,7 @@ services:
       --rpc.gascap="0"
       --rpc.txfeecap=0
       --http.vhosts=*
-      --datadir=/var/lib/goethereum
+#      --datadir=/var/lib/goethereum
     ports:
       - "8545:8545"
     networks:
@@ -63,7 +63,7 @@ services:
       --rpc.gascap="0"
       --rpc.txfeecap=0
       --http.vhosts=*
-      --datadir=/var/lib/goethereum
+#      --datadir=/var/lib/goethereum
     networks:
       priv-eth-net:
 #    volumes:
