@@ -41,8 +41,7 @@ services:
       - "8545:8545"
     networks:
       priv-eth-net:
-    volumes:
-      - ./ethereum-data/.ethereum2:/root/.ethereum
+
   geth-miner:
     hostname: geth-miner
     env_file:
@@ -59,8 +58,7 @@ services:
 
     networks:
       priv-eth-net:
-    volumes:
-      - ./ethereum-data/.ethereum2:/root/.ethereum
+
 networks:
   priv-eth-net:
     driver: bridge
