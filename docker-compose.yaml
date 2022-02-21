@@ -32,7 +32,7 @@ services:
       --rpc.allow-unprotected-txs
       --http
       --http.addr="0.0.0.0"
-      --http.api="debug,eth,web3,net,admin,personal"
+      --http.api="debug,eth,web3,net,admin,personal,web3 "
       --http.corsdomain="*"
       --networkid=${NETWORK_ID}
       --netrestrict="172.16.254.0/28"
