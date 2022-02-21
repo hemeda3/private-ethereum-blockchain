@@ -1,0 +1,145 @@
+/**
+	 *
+	 *
+	 *
+	 *
+	 *
+	 * 1- root: 0x4fd5cc9789bf215ca2483df3c11bdd56ca18df67
+	 *  2- new: 0x07291aef9a1aaf9e4abfdba3cd5e4bcb4b642df4
+
+
+	 //check accounts
+	 curl --location --request POST 'localhost:8545' \
+	 --header 'Content-Type: application/json' \
+	 --data-raw '{
+	 "jsonrpc": "2.0",
+	 "id": 3,
+	 "method": "eth_accounts",
+	 "params": []
+	 }'
+
+
+	 // root account balance
+	 curl --location --request POST 'localhost:8545' \
+	 --header 'Content-Type: application/json' \
+	 --data-raw '{
+	 "jsonrpc": "2.0",
+	 "id": 4,
+	 "method": "eth_getBalance",
+	 "params": [
+	 "0xcafe7e59af09e685a53d220461f117e2f8376753",
+	 "latest"
+	 ]
+	 }'
+
+	 //balance
+	 curl --location --request POST 'localhost:8545' \
+	 --header 'Content-Type: application/json' \
+	 --data-raw '{
+	 "jsonrpc": "2.0",
+	 "id": 4,
+	 "method": "eth_getBalance",
+	 "params": [
+	 "0xcafe7e59af09e685a53d220461f117e2f8376753",
+	 "latest"
+	 ]
+	 }'
+	 // unlock root account
+	 curl --location --request POST 'http://localhost:8545' \
+	 --header 'Content-type: application/json' \
+	 --data-raw '{
+	 "jsonrpc": "2.0",
+	 "id": 6,
+	 "method": "personal_unlockAccount",
+	 "params": [
+	 "0xcafe7e59af09e685a53d220461f117e2f8376753",
+	 "5uper53cr3t"
+	 ]
+	 }'
+
+	 // new account
+	 curl --location --request POST 'http://localhost:8545' \
+	 --header 'Content-type: application/json' \
+	 --data-raw '{
+	 "jsonrpc": "2.0",
+	 "id": 5,
+	 "method": "personal_newAccount",
+	 "params": [
+	 "5uper53cr3t"
+	 ]
+	 }'
+
+ // unlock new personal account
+	 curl --location --request POST 'http://localhost:8545' \
+	 --header 'Content-type: application/json' \
+	 --data-raw '{
+	 "jsonrpc": "2.0",
+	 "id": 6,
+	 "method": "personal_unlockAccount",
+	 "params": [
+	 "0xcafe7e59af09e685a53d220461f117e2f8376753",
+	 "5uper53cr3t"
+	 ]
+	 }'
+
+ 	 curl --location --request POST 'localhost:8545' \
+	 --header 'Content-Type: application/json' \
+	 --data-raw '{
+	 "jsonrpc": "2.0",
+	 "id": 17,
+	 "method": "eth_sendTransaction",
+	 "params": [
+	 {
+	 "from": "0xcafe7e59af09e685a53d220461f117e2f8376753",
+	 "to": "0x129b451dcf8898be8d55783312ad7e171170952b",
+	 "value": "0x4b0"
+	 }
+	 ]
+	 }'
+curl --location --request POST 'localhost:8545' \
+	 --header 'Content-Type: application/json' \
+	 --data-raw '{
+	 "jsonrpc": "2.0",
+	 "id": 4,
+	 "method": "eth_getBalance",
+	 "params": [
+	 "0x129b451dcf8898be8d55783312ad7e171170952b",
+	 "latest"
+	 ]
+	 }'
+	 curl --location --request POST 'localhost:8545' \
+	 --header 'Content-Type: application/json' \
+	 --data-raw '{
+	 "jsonrpc": "2.0",
+	 "id": 4,
+	 "method": "eth_getBalance",
+	 "params": [
+	 "0xdcb98af2f123d810ae9283e158416b45c725d52c",
+	 "latest"
+	 ]
+	 }'
+
+ curl --location --request POST 'localhost:8545' \
+	 --header 'Content-Type: application/json' \
+	 --data-raw '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["latest", true],"id":1}'
+crypto# curl --location --request POST 'localhost:8545'-i -X POST \ -H "Content-Type: application/json" \ --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["latest", true],"id":1}'
+	 * @param args
+	 */
+
+
+docker run -v /Users/ahmed/projects/crypto/stellar-sbt/src/main/solidity/truff/contracts:/sources  ethereum/solc:0.4.24 -o /sources/output --abi --bin /sources/UsdtContract.sol
+docker run -v /Users/ahmed/projects/crypto/stellar-sbt/src/main/solidity/truff/contracts:/sources  ethereum/solc:0.4.24 -o /sources/output --abi --bin /sources/UsdtContract.sol
+
+
+
+GAS limit problem:
+https://ethereum.stackexchange.com/questions/13730/how-to-increase-gas-limit-in-block-using-geth
+1
+
+I just wanted to contribute a solution to similar problems. When you get the error: "err: Error: Returned error: exceeds block gas limit" it might be triggered by the amount of gas you sent for processing the transaction. Normally, you'd think it is fine to send more gas than necessary because any unused gas would be refunded. However, if you provide too much gas to use to process your transaction, it will crash with this error. It seems that the assumption the miner makes is that if you needed to send that much gas, the underlying function is too complicated to process and error prone. They'd have better luck making money mining a simpler transaction.
+
+According to https://www.ethgasstation.info/ The maximum block limit is 8000000, so the amount of gas for your transaction must be less than or equal to this number in hex, i.e. web3.utils.toHex('8000000'), and the same should be true for the gas required of the contract's function.
+
+Share
+
+
