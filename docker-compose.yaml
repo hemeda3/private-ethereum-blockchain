@@ -33,6 +33,7 @@ services:
       --allow-insecure-unlock
       --rpc.allow-unprotected-txs
       --http
+      --dev
       --http.addr="0.0.0.0"
       --http.api="debug,eth,web3,net,admin,personal,web3 "
       --http.corsdomain="*"
